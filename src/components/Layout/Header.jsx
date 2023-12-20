@@ -1,33 +1,37 @@
-import "./header.css";
-
+import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate=useNavigate();
+  const goToHomePage=()=>{navigate("/")};
+  
   return (
     <header className="header">
       <a href="#" className="logo">
-        <img src="images\logo.png" alt="logo" />
+        <img src="images\logo.png" alt="logo" onClick={goToHomePage} />
       </a>
       <nav className="navbar">
-        <a href="#" className="active">
+      
+        <NavLink to="/" className={({ isActive }) => (isActive ? "active" : undefined)}>
           Characters
-        </a>
-        <a href="#" className="">
+        </NavLink>
+        <NavLink to="/episodes" className={({ isActive }) => (isActive ? "active" : undefined)}>
           Episodes
-        </a>
+        </NavLink>
       </nav>
       <div className="buttons">
-        <button >
+        <button>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
         <button>
-        <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={faHeart} />
         </button>
         <button>
-        <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon icon={faBars} />
         </button>
       </div>
     </header>
