@@ -1,0 +1,9 @@
+.card {
+    padding:0 7%;
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap:5rem;
+    
+  }
+  

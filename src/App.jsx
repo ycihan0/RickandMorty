@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Error from "./pages/Error";
-import Characters from "./pages/Characters";
+import Characters from "./pages/characters";
 import Episodes from "./pages/Episodes";
 import RootLayout from "./pages/Root";
 
@@ -25,8 +25,6 @@ function App() {
   return (
     <>
     <RouterProvider router={router} />
-    
-   
     </>
   );
 }
