@@ -23,8 +23,14 @@
     padding-left: 2rem;
     padding-right: 2rem;
 }
+/* .card-head {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+} */
 .card-head h3{
-    font-size: 2.75rem;
+    font-size: 2.4rem;
+       
 }
 .card-head p{
     font-size: 2rem;
@@ -32,15 +38,16 @@
 
 .card-button{
     background-color:var(--black-color);
-    border: none;
+    /* border: none; */
     color: #fff;
-    padding: 8px 75.7px;
+    padding: 8px 75.9px;
     text-align: center;
     /* text-decoration: none;
-    display: inline-block; */
+    display: inline-block;  */
     font-size: 16px;
     position: absolute;
     bottom:0%;
+    cursor: pointer;
 }
 .fav-button{
     position: absolute;
@@ -49,6 +56,16 @@
     cursor: pointer;
     font-size: 3rem;
     background-color: transparent;
+    
+}
+.status{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 3rem;
+    font-size: 12px;
     
 }
 
