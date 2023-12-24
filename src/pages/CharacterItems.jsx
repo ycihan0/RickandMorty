@@ -1,8 +1,16 @@
 import "./CharacterItem.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store";
 
 const CharacterItems = ({ character }) => {
+  const dispatch=useDispatch();
+
+  const handleAddToCart=(item)=>{
+    dispatch(cartActions.addToCart(item))
+  
+  }
 const statusInfo=() => {
   if (character.status == "Dead") {
     return (<span className="status" style={{backgroundColor:'red'}}>{character.status}</span>)
@@ -14,6 +22,7 @@ const statusInfo=() => {
     return (<span className="status" style={{backgroundColor:'grey'}}>{character.status}</span>)
   }
 }
+
   return (
     <div className="card-container">
       <img src={character.image} alt="character" />
@@ -25,7 +34,7 @@ const statusInfo=() => {
         </div>
       </div>
       <button className="card-button">learn more</button>
-      <button>
+      <button onClick={()=>handleAddToCart(character)}>
         <FontAwesomeIcon icon={faHeart} className="fav-button" />
       </button>
       {statusInfo()}

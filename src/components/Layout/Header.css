@@ -9,7 +9,7 @@
      box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
      position: sticky;/*sayfa kayınca bile ekranda kal*/
      top:0;
-     z-index:1000;/*her zaman önde olsun*/
+     z-index:99;/*her zaman önde olsun*/
 }
 .logo img {
     height: 7rem;

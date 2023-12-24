@@ -3,10 +3,12 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Layout/Header";
 
 
-const RootLayout = () => {
+
+const RootLayout = ({showCartHandler}) => {
+ 
   return (
-    <Fragment>
-      <Header/>
+    <Fragment> 
+      <Header showCartHandler={showCartHandler}/>
       <Outlet />
     </Fragment>
   );

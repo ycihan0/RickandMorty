@@ -5,9 +5,12 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Header = () => {
+
+const Header = ({showCartHandler}) => {
   const navigate=useNavigate();
   const goToHomePage=()=>{navigate("/")};
+  // const dispatch=useDispatch();
+  // const showCartHandler=()=>{dispatch(cartActions.showCartHandler())}
   
   return (
     <header className="header">
@@ -27,7 +30,7 @@ const Header = () => {
         <button>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
-        <button>
+        <button onClick={showCartHandler}>
           <FontAwesomeIcon icon={faHeart} />
         </button>
         <button>

@@ -1,28 +1,51 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialCounterState = {
-  value: 2,
-  showCounter: true,
-};
-
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: initialCounterState,
+const cartSlice = createSlice({
+  name: "cart",
+  initialState:{items:[]},
   reducers: {
-    increment(state) {
-      state.value++;
+    addToCart:(state,action)=>{
+     const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      let updatedItems = [...state.items];
+      if (existingCartItemIndex !== -1) {
+        //burada remove fonksiyonunu çalıştır
+        updatedItems[existingCartItemIndex] = {
+          ...state.items[existingCartItemIndex],
+          // amount:
+          //   state.items[existingCartItemIndex].amount + action.payload.item.amount,
+        };
+      } else {
+        updatedItems = [...state.items, action.payload];
+      }
+
+      return {
+        items: updatedItems,
+        
+      };
+     
+      // const newItem=action.payload;
+      // const existingItem=state.items.find((item)=>item.id===newItem.id);
+      // if(existingItem){
+      //   existingItem.quantity+=newItem.quantity;
+      // }
+      // else{
+      //   state.items.push(newItem);
+      // }
+     
     },
-    decrement(state) {
-      state.value--;
+    removeFromCart:(state,action)=>{
+      const itemIdToRemove=action.payload;
+      state.items=state.items.filter(item=>item.id!==itemIdToRemove)
     },
-    increase(state, action) {
-      state.value = state.value + action.payload.amount;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
+    clearCart:(state)=>{
+        state.items=[];
+    }
+   
   },
 });
 
-const store=configureStore({reducer:{counter: counterSlice.reducer}})
+const store=configureStore({reducer:{cart: cartSlice.reducer}})
+export const cartActions=cartSlice.actions
 export default store;

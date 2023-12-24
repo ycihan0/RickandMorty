@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import { useEffect } from "react";
 import Card from "../components/UI/Card";
 
+
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsloading] = useState(false);
@@ -52,8 +53,11 @@ const Characters = () => {
   }
 
  
-  return (
-    <Card>{content}</Card>
+  return (<>
+
+  <Card>{content}</Card>
+  </>
+    
   );
 };
 
