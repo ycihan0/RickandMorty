@@ -4,6 +4,8 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 
 const Header = ({showCartHandler}) => {
@@ -11,7 +13,7 @@ const Header = ({showCartHandler}) => {
   const goToHomePage=()=>{navigate("/")};
   // const dispatch=useDispatch();
   // const showCartHandler=()=>{dispatch(cartActions.showCartHandler())}
-  
+  const cartItemCount = useSelector((state) => state.cart.items.length);
   return (
     <header className="header">
       <a href="#" className="logo">
@@ -32,6 +34,7 @@ const Header = ({showCartHandler}) => {
         </button>
         <button onClick={showCartHandler}>
           <FontAwesomeIcon icon={faHeart} />
+         {cartItemCount}
         </button>
         <button>
           <FontAwesomeIcon icon={faBars} />

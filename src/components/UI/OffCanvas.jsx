@@ -8,8 +8,8 @@ const Backdrop = (props) => {
 
 const OffcanvasOverlay = (props) => {
   return (
-    <div className="offcanvas">
-      <div className="content">{props.children}</div>
+    < div className="offcanvas">
+      {props.children}
     </div>
   );
 };
@@ -20,7 +20,7 @@ const Offcanvas = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <Backdrop onClose={props.onClose} />,
+        <Backdrop onClose={props.hideCartHandler} />,
         portalElement
       )}
       {ReactDOM.createPortal(

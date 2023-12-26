@@ -1,13 +1,19 @@
+import { useDispatch } from "react-redux";
 import Offcanvas from "../UI/OffCanvas";
 import "./Cart.css";
 import CartItem from"./CartItem.jsx"
+import { cartActions } from "../../store/index.js";
 
-const Cart = () => {
+const Cart = ({hideCartHandler}) => {
+    const dispatch=useDispatch();
+    const handleClearCart=()=>{
+        dispatch(cartActions.clearCart())
+    }
     return (
-        <Offcanvas>
+        <Offcanvas hideCartHandler={hideCartHandler}>
             <div className="cart-head">
                 <h2>My Favorites</h2>
-                <a href="/" className="cart-close">
+                <a href="/" className="cart-close" onClick={hideCartHandler}>
                     X
                 </a>
             </div>
@@ -17,9 +23,9 @@ const Cart = () => {
             </div>
             
                 <div className="actions">
-                    <button className="cart-order">Sipariş Ver</button>
-                    <button className="cart-clear" >
-                        Temizle
+                   
+                    <button className="cart-clear" onClick={handleClearCart}>
+                        Clear
                     </button>
                 </div>
         

@@ -68,6 +68,8 @@
     font-size: 12px;
     
 }
-
+.fav-button-active{
+    color: red;
+}
 
 

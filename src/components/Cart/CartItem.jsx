@@ -1,28 +1,35 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store";
 
 const CartItem = () => {
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems)
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (item) => {
+    dispatch(cartActions.removeFromCart(item));
+  };
   return (
     <div>
-        <ul>
+      <ul>
         {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              {item.name}
-            </li>
-          ))}
-
-        </ul>
-      )}
+          <p>Your cart is empty.</p>
+        ) : (
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>
+               
+                {item.name}
+                <button onClick={() => handleRemoveFromCart(item)}>
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </ul>
-       <span>Toplam Değer</span>
-                <span>₺</span>
+     
     </div>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;
