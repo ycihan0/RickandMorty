@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store";
 
-const CharacterItems = ({ character }) => {
-  const dispatch = useDispatch();
 
+const CharacterItems = ({ character ,showCharacterInfo}) => {
+  const dispatch = useDispatch();
+  
+  
   const handleAddToCart = (item) => {
     dispatch(cartActions.addToCart(item));
   };
@@ -50,7 +52,7 @@ const CharacterItems = ({ character }) => {
           </p>
         </div>
       </div>
-      <button className="card-button">learn more</button>
+      <button className="card-button" onClick={showCharacterInfo}>learn more</button>
       <button
         onClick={() => handleAddToCart(character)}
         className={`fav-button ${isFavorite ? "fav-button-active" : ""}`}

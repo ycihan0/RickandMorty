@@ -6,15 +6,19 @@ import Episodes from "./pages/Episodes";
 import RootLayout from "./pages/Root";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
+import CharacterInfo from "./components/CharacterInfo/CharacterInfo";
 
 function App() {
   const [cartIsShow, setCartIsShow] = useState(false);
+  const [characterInfoShow, setCharacterInfoShow]=useState(false);
+  const showCharacterInfo=()=>{setCharacterInfoShow(true)}
   const showCartHandler = () => {
     setCartIsShow(true)
   }
   const hideCartHandler = (e) => {
     e.preventDefault()
     setCartIsShow(false)
+    setCharacterInfoShow(false)
   }
 
   const router = createBrowserRouter([
@@ -23,7 +27,7 @@ function App() {
       element: <RootLayout showCartHandler={showCartHandler}/>,
       errorElement: <Error />,
       children: [
-        { path: "/", element: <Characters /> },
+        { path: "/", element: <Characters showCharacterInfo={showCharacterInfo} /> },
         { path: "/episodes", element: <Episodes /> },
   
       ],
@@ -33,6 +37,7 @@ function App() {
     <>
      <RouterProvider router={router} />
      {cartIsShow && <Cart hideCartHandler={hideCartHandler}/>}
+     {characterInfoShow && <CharacterInfo hideCartHandler={hideCartHandler}/>}
     </>
   );
 }

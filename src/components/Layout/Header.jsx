@@ -6,13 +6,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
-
-const Header = ({showCartHandler}) => {
-  const navigate=useNavigate();
-  const goToHomePage=()=>{navigate("/")};
-  // const dispatch=useDispatch();
-  // const showCartHandler=()=>{dispatch(cartActions.showCartHandler())}
+const Header = ({ showCartHandler }) => {
+  const navigate = useNavigate();
+  const goToHomePage = () => {
+    navigate("/");
+  };
   const cartItemCount = useSelector((state) => state.cart.items.length);
   return (
     <header className="header">
@@ -20,11 +18,16 @@ const Header = ({showCartHandler}) => {
         <img src="images\logo.png" alt="logo" onClick={goToHomePage} />
       </a>
       <nav className="navbar">
-      
-        <NavLink to="/" className={({ isActive }) => (isActive ? "active" : undefined)}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           Characters
         </NavLink>
-        <NavLink to="/episodes" className={({ isActive }) => (isActive ? "active" : undefined)}>
+        <NavLink
+          to="/episodes"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           Episodes
         </NavLink>
       </nav>
@@ -34,7 +37,7 @@ const Header = ({showCartHandler}) => {
         </button>
         <button onClick={showCartHandler}>
           <FontAwesomeIcon icon={faHeart} />
-         {cartItemCount}
+          {cartItemCount}
         </button>
         <button>
           <FontAwesomeIcon icon={faBars} />
