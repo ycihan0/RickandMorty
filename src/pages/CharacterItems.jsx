@@ -63,7 +63,7 @@ const CharacterItems = ({ character }) => {
         <FontAwesomeIcon icon={faHeart} />
       </button>
       {statusInfo()}
-      {characterInfoShow && <CharacterInfo character={character} hideCharacterInfoHandler={hideCharacterInfoHandler}/>}
+      {characterInfoShow && <CharacterInfo character={character} hideCharacterInfoHandler={hideCharacterInfoHandler} />}
     </div>
   );
 };
