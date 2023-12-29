@@ -3,12 +3,15 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store";
+import CharacterInfo from"../components/CharacterInfo/CharacterInfo"
+import { useState } from "react";
 
-
-const CharacterItems = ({ character ,showCharacterInfo}) => {
+const CharacterItems = ({ character }) => {
   const dispatch = useDispatch();
   
-  
+  const [characterInfoShow, setCharacterInfoShow]=useState(false);
+  const showCharacterInfoHandler=()=>{setCharacterInfoShow(true)};
+  const hideCharacterInfoHandler=()=>{setCharacterInfoShow(false)};
   const handleAddToCart = (item) => {
     dispatch(cartActions.addToCart(item));
   };
@@ -52,7 +55,7 @@ const CharacterItems = ({ character ,showCharacterInfo}) => {
           </p>
         </div>
       </div>
-      <button className="card-button" onClick={showCharacterInfo}>learn more</button>
+      <button className="card-button" onClick={showCharacterInfoHandler}>learn more</button>
       <button
         onClick={() => handleAddToCart(character)}
         className={`fav-button ${isFavorite ? "fav-button-active" : ""}`}
@@ -60,6 +63,7 @@ const CharacterItems = ({ character ,showCharacterInfo}) => {
         <FontAwesomeIcon icon={faHeart} />
       </button>
       {statusInfo()}
+      {characterInfoShow && <CharacterInfo character={character} hideCharacterInfoHandler={hideCharacterInfoHandler}/>}
     </div>
   );
 };

@@ -6,7 +6,8 @@ import Card from "../components/UI/Card";
 import Pagination from "../components/Pagination/Pagination";
 
 
-const Characters = ({showCharacterInfo}) => {
+
+const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,7 +15,7 @@ const Characters = ({showCharacterInfo}) => {
 const [pageNumber, setPageNumber]=useState(1);
 
   const characterList = characters.map((character) => (
-      <CharacterItems key={character.id} character={character} showCharacterInfo={showCharacterInfo}  />
+      <CharacterItems key={character.id} character={character} />
     ));
 
   const fetchCharactersHandler = useCallback(async () => {
@@ -31,7 +32,6 @@ const [pageNumber, setPageNumber]=useState(1);
       setInfo(info);
     } catch (error) {
       setError(error.message);
-     
     }
     setIsloading(false);
   },[pageNumber]);
@@ -57,6 +57,7 @@ const [pageNumber, setPageNumber]=useState(1);
   return (<>
 
   <Card>{content}</Card>
+ 
   <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
   </>
     

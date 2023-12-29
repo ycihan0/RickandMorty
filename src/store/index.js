@@ -44,6 +44,14 @@ const cartSlice = createSlice({
   },
 });
 
+const characterSlice = createSlice({
+  name:"characters",
+  initialState:{},
+  reducers:{
+
+  },
+});
+
 const store = configureStore({ reducer: { cart: cartSlice.reducer } });
 export const cartActions = cartSlice.actions;
 export default store;

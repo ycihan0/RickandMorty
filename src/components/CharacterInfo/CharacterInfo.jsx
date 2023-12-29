@@ -1,9 +1,10 @@
 import Offcanvas from "../UI/Offcanvas"
 
-const CharacterInfo = ({hideCartHandler}) => {
+const CharacterInfo = ({hideCharacterInfoHandler,character}) => {
+  console.log(character);
   return (
-    <Offcanvas hideCartHandler={hideCartHandler}>
-  lalalalaal
+    <Offcanvas hideCartHandler={hideCharacterInfoHandler}>
+ {character.name}
     </Offcanvas>
   )
 }
