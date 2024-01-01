@@ -5,10 +5,13 @@ import "./CartItem.css"
 const CartItem = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-
   const handleRemoveFromCart = (item) => {
     dispatch(cartActions.removeFromCart(item));
   };
+  
+
+
+  // const openCharacterInfo=(item)=>{return(<CharacterInfo character={item}/>)}
   return (
     <div className="cart-item-container">
 
@@ -26,16 +29,15 @@ const CartItem = () => {
                 <button className="button-del" onClick={() => handleRemoveFromCart(item)}>
                   Del
                 </button>
-                <button className="button-info" onClick={() => handleRemoveFromCart(item)}>
+                {/* <button className="button-info" onClick={() => showCharacterInfoHandler(character)}>
                   info
-                </button>
+                </button> */}
               </div>
             </li>
           ))}
         </ul>
       )}
-
-
+   
     </div>
   );
 };

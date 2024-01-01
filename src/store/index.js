@@ -8,7 +8,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      if (state.items.length < 10) {
+     
         const existingCartItemIndex = state.items.findIndex(
           (item) => item.id === action.payload.id
         );
@@ -22,17 +22,19 @@ const cartSlice = createSlice({
 
           updateIsFavorite = false;
         } else {
+          if (state.items.length < 10) {
           updatedItems = [...state.items, action.payload];
           updateIsFavorite = true;
+        } else {
+          console.log("sepet doldu");
+        }
         }
 
         return {
           isFavorite: updateIsFavorite,
           items: updatedItems,
         };
-      } else {
-        console.log("sepet doldu");
-      }
+      
     },
     removeFromCart: (state, action) => {
       const itemIdToRemove = action.payload.id;

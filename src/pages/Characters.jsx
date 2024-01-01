@@ -4,15 +4,15 @@ import { useCallback } from "react";
 import { useEffect } from "react";
 import Card from "../components/UI/Card";
 import Pagination from "../components/Pagination/Pagination";
+import "./Characters.css";
 
 
-
-const Characters = () => {
+const Characters = ({search,pageNumber,setPageNumber}) => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
   const [info, setInfo] = useState({});
-const [pageNumber, setPageNumber]=useState(1);
+
 
   const characterList = characters.map((character) => (
       <CharacterItems key={character.id} character={character} />
@@ -22,7 +22,7 @@ const [pageNumber, setPageNumber]=useState(1);
     setIsloading(true);
     setError(null);
     try {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`);
+      const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`);
       if (response.status !== 200) {
         throw new Error("Something went wrong!");
       }
@@ -34,7 +34,7 @@ const [pageNumber, setPageNumber]=useState(1);
       setError(error.message);
     }
     setIsloading(false);
-  },[pageNumber]);
+  },[pageNumber,search]);
 
   useEffect(() => {
     fetchCharactersHandler();
@@ -55,8 +55,10 @@ const [pageNumber, setPageNumber]=useState(1);
     content = <p>Loading...</p>;
   }
   return (<>
-
-  <Card>{content}</Card>
+<div className="cards">
+<Card>{content}</Card>
+</div>
+  
  
   <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
   </>

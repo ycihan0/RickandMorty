@@ -15,7 +15,7 @@
     border: none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: 0.2s ease;
+    /* transition: 0.2s ease; */
 }
 html{
     font-size: 62.5%; /*1 rem=10px*/
@@ -24,5 +24,10 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-color: var(--main-color);
+    background-image: url('./images/background.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background: blur(8px);
 }

@@ -4,11 +4,14 @@ import "./Cart.css";
 import CartItem from "./CartItem.jsx";
 import { cartActions } from "../../store/index.js";
 
+
 const Cart = ({ hideCartHandler }) => {
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(cartActions.clearCart());
   };
+
+  
   return (
     <Offcanvas hideCartHandler={hideCartHandler}>
       <div className="cart-head">
@@ -27,6 +30,7 @@ const Cart = ({ hideCartHandler }) => {
           Clear
         </button>
       </div>
+      
     </Offcanvas>
   );
 };

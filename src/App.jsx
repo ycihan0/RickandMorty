@@ -10,6 +10,8 @@ import { useState } from "react";
 
 function App() {
   const [cartIsShow, setCartIsShow] = useState(false);
+  const [search, setSearch]=useState("");
+  const [pageNumber, setPageNumber]=useState(1);
     
   const showCartHandler = () => {
     setCartIsShow(true)
@@ -23,10 +25,10 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootLayout showCartHandler={showCartHandler}/>,
+      element: <RootLayout  showCartHandler={showCartHandler} setSearch={setSearch} setPageNumber={setPageNumber}/>,
       errorElement: <Error />,
       children: [
-        { path: "/", element: <Characters/> },
+        { path: "/", element: <Characters pageNumber={pageNumber} setPageNumber={setPageNumber} search={search}/> },
         { path: "/episodes", element: <Episodes /> },
   
       ],

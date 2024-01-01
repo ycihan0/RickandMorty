@@ -7,7 +7,7 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
         <ReactPaginate
             breakLabel="..."
             nextLabel="Next"
-            // forcePage={pageNumber===1? 0:pageNumber-1}
+            forcePage={pageNumber===1? 0:pageNumber-1}
             onPageChange={(data) => {
                 setPageNumber(data.selected + 1)
             }}

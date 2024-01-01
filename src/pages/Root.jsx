@@ -4,11 +4,11 @@ import Header from "../components/Layout/Header";
 
 
 
-const RootLayout = ({showCartHandler}) => {
+const RootLayout = ({showCartHandler, setSearch,setPageNumber}) => {
  
   return (
     <Fragment> 
-      <Header showCartHandler={showCartHandler}/>
+      <Header showCartHandler={showCartHandler} setSearch={setSearch} setPageNumber={setPageNumber}/>
       <Outlet />
     </Fragment>
   );
