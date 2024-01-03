@@ -7,38 +7,60 @@ import RootLayout from "./pages/Root";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
 
-
 function App() {
   const [cartIsShow, setCartIsShow] = useState(false);
-  const [search, setSearch]=useState("");
-  const [pageNumber, setPageNumber]=useState(1);
-    
+  const [search, setSearch] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+  const [filters, setFilters] = useState({
+    gender:"",
+    status: "",
+    species: "",
+  });
+ 
   const showCartHandler = () => {
-    setCartIsShow(true)
-  }
+    setCartIsShow(true);
+  };
   const hideCartHandler = (e) => {
-    e.preventDefault()
-    setCartIsShow(false)
+    e.preventDefault();
+    setCartIsShow(false);
     // setCharacterInfoShow(false)
-  }
+  };
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootLayout  showCartHandler={showCartHandler} setSearch={setSearch} setPageNumber={setPageNumber}/>,
+      element: (
+        <RootLayout
+          showCartHandler={showCartHandler}
+          setSearch={setSearch}
+          setPageNumber={setPageNumber}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      ),
       errorElement: <Error />,
       children: [
-        { path: "/", element: <Characters pageNumber={pageNumber} setPageNumber={setPageNumber} search={search}/> },
+        {
+          path: "/",
+          element: (
+            <Characters
+              pageNumber={pageNumber}
+              setPageNumber={setPageNumber}
+              search={search}
+              filters={filters}
+              setFilters={setFilters}
+             
+            />
+          ),
+        },
         { path: "/episodes", element: <Episodes /> },
-  
       ],
     },
   ]);
   return (
     <>
-     <RouterProvider router={router} />
-     {cartIsShow && <Cart hideCartHandler={hideCartHandler}/>}
-     
+      <RouterProvider router={router} />
+      {cartIsShow && <Cart hideCartHandler={hideCartHandler} />}
     </>
   );
 }

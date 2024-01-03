@@ -1,75 +1,59 @@
-.card-container{
-    background: #fff;
-    width: 240px;
-	height: 450px;
-    border-radius: 3rem;
-    overflow: hidden;
-    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
-    position: relative;
+.card-container {
+  background: #fff;
+  width: 240px;
+  height: 450px;
+  border-radius: 3rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+  position: relative;
 }
-.card-container img{
-    width: 240px;
-    height: 240px;
-}
-/* .card-container:hover img{
-    transform: scale(1.03);
-} */
-.card-description{
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-/* .card-head {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  
-} */
-.card-head h3{
-    font-size: 2.4rem;
-       
-}
-.card-head p{
-    font-size: 2rem;
+.card-container img {
+  width: 240px;
+  height: 240px;
 }
 
-.card-button{
-    background-color:var(--black-color);
-    /* border: none; */
-    color: #fff;
-    padding: 8px 75.999px;
-    text-align: center;
-    /* text-decoration: none;
-    display: inline-block;  */
-    font-size: 16px;
-    position: absolute;
-    bottom:0%;
-    cursor: pointer;
-   
+.card-description {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.card-head h3 {
+  font-size: 2.4rem;
+}
+.card-head p {
+  font-size: 2rem;
+}
+
+.card-button {
+  background-color: var(--black-color);
+  color: #fff;
+  padding: 8px 75.999px;
+  text-align: center;
+  font-size: 16px;
+  position: absolute;
+  bottom: 0%;
+  cursor: pointer;
 }
 .card-button:hover {
-    background-color: #333;
-    
-  }
-.fav-button{
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    cursor: pointer;
-    font-size: 3rem;
-    background-color: transparent;
-    
+  background-color: #333;
 }
-.status{
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    color: #fff;
-    padding: 5px 9px;
-    border-radius: 3rem;
-    font-size: 12px;
-    
+.fav-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 3rem;
+  background-color: transparent;
 }
-.fav-button-active{
-    color: red;
+.status {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 3rem;
+  font-size: 12px;
 }
-
-
+.fav-button-active {
+  color: red;
+}

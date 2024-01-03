@@ -1,0 +1,96 @@
+/* Stil Accordion Container */
+.Accordion {
+  width: 100%;
+  margin: 1.5rem;
+}
+
+/* Stil Accordion Item */
+.AccordionItem {
+  font-size: 14px;
+  border: 1px solid;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Stil Accordion Heading */
+.AccordionItemHeading {
+  background-color: black;
+  padding: 10px;
+  cursor: pointer;
+}
+.AccordionItemHeading:hover {
+  background-color: #333;
+}
+
+/* Stil Accordion Button */
+.AccordionItemButton {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Stil Accordion Panel */
+.AccordionItemPanel {
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+ .filter-clear-button {
+  text-align: center;
+  background-color: rgb(247, 19, 19);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+  }
+
+ .filter-clear-button:hover {
+  opacity: 0.8;
+} 
+
+/* -------------------------Filters radio button --------------*/
+.filter-items input {
+  display: none;
+ 
+}
+
+.filter-items label {
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 12px;
+}
+.checkmark-radio {
+  position: absolute;
+  top: 4;
+  left: 22px;
+  height: 18px;
+  width: 18px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+.filter-items input:checked ~ .checkmark-radio {
+  background-color: var(--main-color);
+}
+
+.checkmark-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.filter-items input:checked ~ .checkmark-radio:after {
+  display: block;
+}
+
+.filter-items  .checkmark-radio:after {
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}

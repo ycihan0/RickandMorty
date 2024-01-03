@@ -1,118 +1,124 @@
-.header{
-     background-color: #fff;
-     display: flex;/*yanyana koy*/
-     align-items: center;/*içeri hizala*/
-     justify-content: space-between;/*içerideki elementleri hizala*/
-     padding:0 7% ;
-     margin: 2rem 7%;
-     border-radius: 30rem;
-     box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
-     position: sticky;/*sayfa kayınca bile ekranda kal*/
-     top:0;
-     z-index:99;/*her zaman önde olsun*/
+.header {
+  background-color: #fff;
+  display: flex; /*yanyana koy*/
+  align-items: center; /*içeri hizala*/
+  justify-content: space-between; /*içerideki elementleri hizala*/
+  padding: 0 7%;
+  margin: 2rem 7%;
+  border-radius: 30rem;
+  box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+  position: sticky; /*sayfa kayınca bile ekranda kal*/
+  top: 0;
+  z-index: 99; /*her zaman önde olsun*/
 }
 .logo img {
-    height: 7rem;
+  height: 7rem;
 }
 
-.navbar a{
-    margin:0 1rem;
-    font-size: 1.6rem;
-    color:var(--black-color);
-    border-bottom: 0.1rem solid transparent;
-    
+.navbar a {
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: var(--black-color);
+  border-bottom: 0.1rem solid transparent;
 }
 .navbar .active,
-.navbar a:hover{
-    border-color:var(--main-color);
-    padding-bottom: 0.5rem;
+.navbar a:hover {
+  border-color: var(--main-color);
+  padding-bottom: 0.5rem;
 }
-.buttons button{
-    cursor: pointer;
-    font-size: 2.5rem;
-    margin-left:2rem;
-    background-color: transparent;
+.buttons button {
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  background-color: transparent;
 }
-.faBars{
+.faBars {
+  display: none;
+}
+
+.faHeart {
+  position: relative;
+}
+.cart-icon {
+  position: absolute;
+  top: -5px;
+  right: -13px;
+  background-color: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.search-form {
+  position: absolute;
+  top: 102%;
+  right: 0%;
+  background-color: #fff;
+  width: 33rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 3rem;
+  box-shadow: 0px 20px 14px 0px rgb(0 0 0 /75%);
+}
+.search-input {
+  width: 100%;
+  margin: 2rem;
+  padding: 0.1rem;
+  outline: none;
+}
+.search-form button {
+  margin: 2rem;
+  font-size: 1.5rem;
+}
+
+.filter-form {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 20px 14px 0px rgb(0 0 0 /75%);
+  border-top: solid 1px black;
+  right: 10%;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  width: 20rem;
+}
+
+@media (max-width: 768px) {
+  .faBars {
+    display: inline-block;
+  }
+
+  .navbar {
     display: none;
-}
-
-/* @media(max-width:991px){
-    .header{
-        padding: 1.5rem 2rem;
-
-    }
-    .logo img{
-        height: 7rem;
-    }
-
-}  */
-.faHeart{
-    position: relative;
-}
- .cart-icon {
     position: absolute;
-    top: -5px;
-    right: -13px;
-    background-color: red; 
-    color: white;
-    font-size: 11px; 
-    padding: 2px 6px; 
-    border-radius: 50%; 
-  }
-
-  .search-form{
-    position:absolute;
-    top:102%;
-    right:0%;
+    top: 100%;
     background-color: #fff;
-    width: 40rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    border-radius: 3rem;
+    height: 13rem;
+    width: 20rem;
     box-shadow: 0px 20px 14px 0px rgb(0 0 0 /75%);
+    border-top: solid 1px black;
+    right: 10%;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
   }
-  .search-input{
-    width: 100%;
-    margin: 2rem;
-    padding: 0.1rem; 
-    outline: none;
+  .active {
+    display: inline-block;
   }
- .search-form button{
-    margin: 2rem;
-    font-size: 1.5rem;
- }
-
-@media(max-width:768px){
-    .faBars{
-        display: inline-block;
-    }
-
-    .navbar{
-        display: none;
-        position:absolute;
-        top:100%;
-        background-color:#fff ;
-        height:13rem;
-        width: 20rem;
-        box-shadow: 0px 20px 14px 0px rgb(0 0 0 /75%);
-       border-top: solid 1px black;
-       right: 10%;
-       border-bottom-left-radius: 3rem;
-       border-bottom-right-radius: 3rem;
-
-    }
-    .active {
-       display: inline-block;
-    }
-    .navbar a {
-        color:var(--black-color);
-        display:block;
-        margin:1.5rem;
-        padding:0.5rem;
-        font-size:2rem;
-    }
- 
-
+  .navbar a {
+    color: var(--black-color);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .buttons button {
+    font-size: 1.6rem;
+  }
+  .search-form {
+    width: 25rem;
+  }
 }

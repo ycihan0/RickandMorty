@@ -2,24 +2,37 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import Filter from "../Filter/Filter";
 
-const Header = ({ showCartHandler, setSearch,setPageNumber }) => {
+const Header = ({
+  showCartHandler,
+  setSearch,
+  setPageNumber,
+  filters,
+  setFilters,
+}) => {
   const [isFabarsActive, setIsFabarsActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isFilterActive, setIsFilterActive] = useState(false);
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
+  const handleFilterClick = () => {
+    setIsFilterActive((prevIsActive) => !prevIsActive);
+  };
+
+  const handleBarsClick = () => {
     setIsFabarsActive((prevIsActive) => !prevIsActive);
   };
-  
-  const searchOpen=()=>{
+
+  const handleSearchClick = () => {
     setIsSearchActive((prevIsActive) => !prevIsActive);
-  }
- 
+  };
+
   const goToHomePage = () => {
     navigate("/");
   };
@@ -43,23 +56,37 @@ const Header = ({ showCartHandler, setSearch,setPageNumber }) => {
           Episodes
         </NavLink>
       </nav>
+
+      {/* ================Buttons================================= */}
+
       <div className="buttons">
-        <button onClick={searchOpen}>
+        <button onClick={handleFilterClick}>
+          <FontAwesomeIcon icon={faFilter} />
+        </button>
+        {isFilterActive && (
+          <div className="filter-form">
+            <Filter filters={filters} setFilters={setFilters} setPageNumber={setPageNumber} />
+          </div>
+        )}
+        <button onClick={handleSearchClick}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
-        {isSearchActive && <div className="search-form">
-          <input
-            type="text"
-            onChange={(e)=>{
-              setSearch(e.target.value);
-              setPageNumber(1);
-            }}
-            className="search-input"
-            placeholder="searh here"
-          />
-          <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-        </div> }
-        
+        {isSearchActive && (
+          <div className="search-form">
+            <input
+              type="text"
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setPageNumber(1);
+              }}
+              className="search-input"
+              placeholder="searh here"
+            />
+            <button>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
+        )}
         <button onClick={showCartHandler} className="faHeart">
           <FontAwesomeIcon icon={faHeart} />
           {cartItemCount == 0 ? (
@@ -68,7 +95,7 @@ const Header = ({ showCartHandler, setSearch,setPageNumber }) => {
             <span className="cart-icon">{cartItemCount}</span>
           )}
         </button>
-        <button className="faBars" onClick={handleButtonClick}>
+        <button className="faBars" onClick={handleBarsClick}>
           <FontAwesomeIcon icon={faBars} />
         </button>
       </div>
