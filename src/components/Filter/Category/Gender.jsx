@@ -1,5 +1,4 @@
-const Gender = ({ setFilters, setPageNumber,filters }) => {
- 
+const Gender = ({ setFilters, setPageNumber, filters }) => {
   const genders = ["female", "male", "genderless", "unknown"];
   const handleGenderChange = (selectedGender) => {
     setFilters((prevFilters) => {
@@ -16,20 +15,19 @@ const Gender = ({ setFilters, setPageNumber,filters }) => {
   return (
     <div className="filter-items">
       {genders.map((gender, index) => (
-        <label key={index} >
-         <input
-            type="radio"
+        <label key={index}>
+          <input
+            type="checkbox"
             value={gender}
-            onClick={() => {
+            onChange={() => {
               handleGenderChange(gender);
             }}
             checked={filters.gender === gender}
           />
           {gender}
-          <span class="checkmark-radio"></span>
+          <span className="checkmark-radio"></span>
         </label>
       ))}
-      
     </div>
   );
 };

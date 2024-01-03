@@ -23,14 +23,20 @@ const Header = ({
 
   const handleFilterClick = () => {
     setIsFilterActive((prevIsActive) => !prevIsActive);
+    setIsFabarsActive(false);
+    setIsSearchActive(false);
   };
 
   const handleBarsClick = () => {
     setIsFabarsActive((prevIsActive) => !prevIsActive);
+    setIsFilterActive(false);
+    setIsSearchActive(false);
   };
 
   const handleSearchClick = () => {
     setIsSearchActive((prevIsActive) => !prevIsActive);
+    setIsFilterActive(false);
+    setIsFabarsActive(false);
   };
 
   const goToHomePage = () => {

@@ -47,9 +47,7 @@ function App() {
               pageNumber={pageNumber}
               setPageNumber={setPageNumber}
               search={search}
-              filters={filters}
-              setFilters={setFilters}
-             
+              filters={filters}            
             />
           ),
         },

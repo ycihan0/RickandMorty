@@ -1,4 +1,6 @@
 import Gender from "./Category/Gender";
+import Species from "./Category/Species";
+import Status from "./Category/Status";
 import "./Filter.css";
 import {
   Accordion,
@@ -25,7 +27,11 @@ const Filter = ({ filters, setFilters, setPageNumber }) => {
           </AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel className="AccordionItemPanel">
-          statusler
+          <Status
+            filters={filters}
+            setFilters={setFilters}
+            setPageNumber={setPageNumber}
+          />
         </AccordionItemPanel>
       </AccordionItem>
       <AccordionItem className="AccordionItem">
@@ -35,8 +41,11 @@ const Filter = ({ filters, setFilters, setPageNumber }) => {
           </AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel className="AccordionItemPanel">
-          <button>Human</button>
-          <button>Alive</button>
+          <Species
+            filters={filters}
+            setFilters={setFilters}
+            setPageNumber={setPageNumber}
+          />
         </AccordionItemPanel>
       </AccordionItem>
       <AccordionItem className="AccordionItem">
