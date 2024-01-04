@@ -4,18 +4,18 @@ import { useCallback } from "react";
 import { useEffect } from "react";
 import Card from "../components/UI/Card";
 import Pagination from "../components/Pagination/Pagination";
-import "./Characters.css";
+import Footer from "../components/Layout/Footer";
 
-
-const Characters = ({ search, pageNumber, setPageNumber,filters}) => {
+const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
   const [info, setInfo] = useState({});
-  
-const {gender, status, species}=filters;
+  const [isPagination, setIsPagination] = useState(true);
 
-const characterList = characters.map((character) => (
+  const { gender, status, species } = filters;
+
+  const characterList = characters.map((character) => (
     <CharacterItems key={character.id} character={character} />
   ));
 
@@ -23,7 +23,9 @@ const characterList = characters.map((character) => (
     setIsloading(true);
     setError(null);
     try {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&gender=${gender}&species=${species}&status=${status}`);
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&gender=${gender}&species=${species}&status=${status}`
+      );
       if (response.status !== 200) {
         throw new Error("Something went wrong!");
       }
@@ -33,13 +35,13 @@ const characterList = characters.map((character) => (
       setInfo(info);
     } catch (error) {
       setError(error.message);
+      setIsPagination(false);
     }
     setIsloading(false);
-  }, [pageNumber, search, filters]);
+  }, [pageNumber, search, gender, status, species]);
 
   useEffect(() => {
     fetchCharactersHandler();
-
   }, [fetchCharactersHandler]);
 
   let content = <p>Found no products!</p>;
@@ -48,20 +50,44 @@ const characterList = characters.map((character) => (
     content = characterList;
   }
 
-  if (error) {
-    content = <p>{error}</p>;
+   if (error) {
+    
+    content = (
+      <div
+        style={{
+          position: "relative",
+          height:"500px",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "left",
+         
+        }}
+      >
+        <img src="./images/rick.png" alt="Character not found" style={{width:"120px"}}/>
+        <h2>Character not found</h2>
+        
+      </div>
+       
+    );
+   
   }
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <h2>Loading...</h2>;
   }
-  return (<>
-    <Card>{content}</Card>
-
-    <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
-    
-  </>
-
+  return (
+    <>
+      <Card>{content}</Card>
+      {isPagination &&
+        <Pagination
+          info={info}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+        />
+      }
+      <Footer/>
+    </>
   );
 };
 

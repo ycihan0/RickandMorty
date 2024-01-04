@@ -67,3 +67,16 @@ overflow-x: hidden;
     
     background-color: #f4a460;
   }
+
+  .cart-empty {
+    overflow:hidden;
+   height:20rem;
+   width: 150rem;
+  }
+  
+ 
+  .cart-empty img {
+   position: absolute;
+   bottom: 0%;
+   left:70px;
+  }

@@ -3,9 +3,11 @@ import Offcanvas from "../UI/Offcanvas";
 import "./Cart.css";
 import CartItem from "./CartItem.jsx";
 import { cartActions } from "../../store/index.js";
+import { useState } from "react";
 
 
 const Cart = ({ hideCartHandler }) => {
+  const [isClearButton, setIsClearButton]=useState(false);
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(cartActions.clearCart());
@@ -22,14 +24,14 @@ const Cart = ({ hideCartHandler }) => {
       </div>
 
       <div className="total">
-        <CartItem />
+        <CartItem setIsClearButton={setIsClearButton} />
       </div>
 
-      <div className="actions">
+     {isClearButton ? <div className="actions">
         <button className="cart-clear" onClick={handleClearCart}>
           Clear
         </button>
-      </div>
+      </div>:""}
       
     </Offcanvas>
   );

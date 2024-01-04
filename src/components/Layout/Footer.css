@@ -1,0 +1,28 @@
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--black-color);
+    padding: 100px;
+    text-align: center;
+    color: #fff;
+   
+  }
+
+  .footer a {
+    text-transform: lowercase;
+    color: #fff;
+   
+  }
+  .footer h3 {
+   font-size: 12px;
+   padding-top: 8px;
+   
+  }
+  .linked-in-button{
+    font-size: 25px;
+  
+
+  }
+  
