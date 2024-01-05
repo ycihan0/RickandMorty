@@ -82,9 +82,14 @@ const Header = ({
             <input
               type="text"
               onChange={(e) => {
+                if(e.target.value.length>2){
                 setSearch(e.target.value);
+                setPageNumber(1);}
+                if(e.target.value.length==0){
+                  setSearch("");
                 setPageNumber(1);
-              }}
+                }
+               }}
               className="search-input"
               placeholder="searh here"
             />

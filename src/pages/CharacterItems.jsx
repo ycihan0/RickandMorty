@@ -7,6 +7,7 @@ import CharacterInfo from"../components/CharacterInfo/CharacterInfo"
 import { useState } from "react";
 
 const CharacterItems = ({ character }) => {
+ 
   const dispatch = useDispatch();
   
   const [characterInfoShow, setCharacterInfoShow]=useState(false);

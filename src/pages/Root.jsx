@@ -20,7 +20,7 @@ const RootLayout = ({
         setFilters={setFilters}
       />
       <Outlet />
-     
+      <Footer/>
     </Fragment>
   );
 };

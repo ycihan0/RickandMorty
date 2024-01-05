@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CharacterItems from "./CharacterItems";
-import { useCallback } from "react";
-import { useEffect } from "react";
 import Card from "../components/UI/Card";
 import Pagination from "../components/Pagination/Pagination";
-import Footer from "../components/Layout/Footer";
+
 
 const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
   const [characters, setCharacters] = useState([]);
@@ -22,6 +20,7 @@ const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
   const fetchCharactersHandler = useCallback(async () => {
     setIsloading(true);
     setError(null);
+    setIsPagination(true);
     try {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&gender=${gender}&species=${species}&status=${status}`
@@ -44,7 +43,7 @@ const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
     fetchCharactersHandler();
   }, [fetchCharactersHandler]);
 
-  let content = <p>Found no products!</p>;
+  let content = <p>Found no characters!</p>;
 
   if (characters.length > 0) {
     content = characterList;
@@ -86,7 +85,7 @@ const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
           setPageNumber={setPageNumber}
         />
       }
-      <Footer/>
+     
     </>
   );
 };
