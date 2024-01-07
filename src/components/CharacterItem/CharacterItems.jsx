@@ -2,8 +2,8 @@ import "./CharacterItem.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "../store";
-import CharacterInfo from"../components/CharacterInfo/CharacterInfo"
+import { cartActions } from "../../store";
+import CharacterInfo from"../CharacterInfo/CharacterInfo"
 import { useState } from "react";
 
 const CharacterItems = ({ character }) => {

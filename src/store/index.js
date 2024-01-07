@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     isFavorite: false,
+    isCartFull:false,
   },
   reducers: {
     addToCart: (state, action) => {
@@ -14,7 +15,7 @@ const cartSlice = createSlice({
         );
         let updatedItems = [...state.items];
         let updateIsFavorite = state.isFavorite;
-
+        let updateIsCartFull=state.isCartFull;
         if (existingCartItemIndex !== -1) {
           updatedItems = updatedItems.filter(
             (item) => item.id !== action.payload.id
@@ -26,13 +27,14 @@ const cartSlice = createSlice({
           updatedItems = [...state.items, action.payload];
           updateIsFavorite = true;
         } else {
-          console.log("sepet doldu");
+          updateIsCartFull = true;
         }
         }
 
         return {
           isFavorite: updateIsFavorite,
           items: updatedItems,
+          isCartFull: updateIsCartFull,
         };
       
     },
@@ -42,6 +44,9 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items = [];
+    },
+    hideAlert:(state)=>{
+      state.isCartFull=false;
     },
   },
 });

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import CharacterItems from "./CharacterItems";
+import CharacterItems from "../components/CharacterItem/CharacterItems";
 import Card from "../components/UI/Card";
-import Pagination from "../components/Pagination/Pagination";
+import PaginationCharacter from "../components/Pagination/PaginationCharacter";
 
 
 const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
@@ -79,7 +79,7 @@ const Characters = ({ search, pageNumber, setPageNumber, filters }) => {
     <>
       <Card>{content}</Card>
       {isPagination &&
-        <Pagination
+        <PaginationCharacter
           info={info}
           pageNumber={pageNumber}
           setPageNumber={setPageNumber}

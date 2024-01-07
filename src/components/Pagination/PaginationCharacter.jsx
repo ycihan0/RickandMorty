@@ -1,7 +1,7 @@
 import ReactPaginate from "react-paginate"
-import "./Pagination.css"
+import "./PaginationCharacter.css"
 
-const Pagination = ({ info, pageNumber, setPageNumber }) => {
+const PaginationCharacter = ({ info, pageNumber, setPageNumber }) => {
     const pageCount =Number(info.pages || 1);
 
     return (
@@ -26,4 +26,4 @@ const Pagination = ({ info, pageNumber, setPageNumber }) => {
     )
 }
 
-export default Pagination
+export default PaginationCharacter

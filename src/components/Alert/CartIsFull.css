@@ -1,0 +1,62 @@
+.alert-container {
+  background-color: #fff;
+  width: 300px;
+  height: 230px;
+}
+
+.alert-head {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 400px;
+  overflow: hidden;
+  border-top-right-radius: 3rem;
+  border-top-left-radius: 3rem;
+  padding: 2.5rem;
+  color: white;
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  z-index: 10;
+}
+
+.alert-head a {
+  color: white;
+  padding-right: 1rem;
+}
+
+.alert-main {
+  font-size: 16px;
+  color: black;
+  padding-top: 3rem;
+  margin-top: 8px;
+}
+
+.alert-container img {
+  width: 100%;
+  max-width: 130px;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.alert-container button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px auto;
+ margin-left: 120px;
+ border-radius: 1rem;
+ 
+}
+
+.alert-container button:hover {
+  background-color: #333;
+}
