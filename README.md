@@ -1,8 +1,28 @@
 # React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![responsive](https://github.com/ycihan0/rickandmorty/assets/133245392/34369ff0-d15e-4428-a423-e330d41bccd3)
+![design](https://github.com/ycihan0/rickandmorty/assets/133245392/452d0281-ef6b-43b0-be1c-36d222f9bd22)
+![seemore](https://github.com/ycihan0/rickandmorty/assets/133245392/61ece1fa-1f64-435a-bdd6-9cdbf02c9442)
+#what does it contain?
+-React
+-Components
+-React Portal
+-Redux-toolkit 
+-React Router
+-Retrieving data via API
+-Pagination
+-Cart Management 
+-Search
+-Filter
+-Favories
+-Designing with React CSS
+#what was used?
+-React-Redux
+-React-Paginate
+-React-Dom
+-React-Accessible-Accordion
+-Font Awesome Icon
+-Google-Fonts
+#Get started 
+-download
+-npm install
+-npm run dev
