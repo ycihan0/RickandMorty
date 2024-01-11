@@ -1,11 +1,11 @@
 # React + Vite
-![responsive](https://github.com/ycihan0/rickandmorty/assets/133245392/34369ff0-d15e-4428-a423-e330d41bccd3)
-![design](https://github.com/ycihan0/rickandmorty/assets/133245392/452d0281-ef6b-43b0-be1c-36d222f9bd22)
-![seemore](https://github.com/ycihan0/rickandmorty/assets/133245392/61ece1fa-1f64-435a-bdd6-9cdbf02c9442)
-
+![responsive](https://github.com/ycihan0/rickandmorty/assets/133245392/24937b0a-4fd8-4b84-8603-de24aa52f6ec)
+![design](https://github.com/ycihan0/rickandmorty/assets/133245392/bdf892d4-fdb5-4ae3-8d5e-509c3d380cf2)
+![seemore](https://github.com/ycihan0/rickandmorty/assets/133245392/17d28be3-276f-4051-a495-d0f533256a8c)
+![map](https://github.com/ycihan0/rickandmorty/assets/133245392/f2bb5902-70a7-4bfe-bf8a-69fe42ed3c83)
 # What does it contain?
 - React 1
- -Components 2
+- Components 2
 - React Portal 
 - Redux-toolkit 
 - React Router 
@@ -27,5 +27,5 @@
 - download
 - npm install
 - npm run dev
-
+![PaginationandError](https://github.com/ycihan0/rickandmorty/assets/133245392/2ef9ec48-c173-47ca-ac57-6673b853fc0f)
 
