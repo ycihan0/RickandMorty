@@ -27,5 +27,6 @@
 - download
 - npm install
 - npm run dev
+
 ![PaginationandError](https://github.com/ycihan0/rickandmorty/assets/133245392/2ef9ec48-c173-47ca-ac57-6673b853fc0f)
 
