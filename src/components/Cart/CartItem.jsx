@@ -7,6 +7,10 @@ const CartItem = ({setIsClearButton}) => {
   const cartItems = useSelector((state) => state.cart.items);
   
   const dispatch = useDispatch();
+  useEffect(() => {
+    setIsClearButton(cartItems.length > 0);
+  }, [cartItems, setIsClearButton]);
+  
   const handleRemoveFromCart = (item) => {
     dispatch(cartActions.removeFromCart(item));
   };
