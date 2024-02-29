@@ -18,6 +18,13 @@
   display: block;
   margin: 0 auto; 
 }
+
+.table-main{
+  height: 350px;
+  overflow-y: scroll;
+
+}
+
 table {
   width: 100%;
   border-spacing: 0;
@@ -30,6 +37,7 @@ table {
 thead {
   background-color: var(--black-color);
   color: #fff;
+  
  
 }
 thead tr:hover {
@@ -55,7 +63,9 @@ tr:hover {
   transition: background-color 0.3s;
 }
 
-
+.selected-row {
+  background-color: #ddd; /* veya istediğiniz bir renk */
+}
 
 th {
   font-weight: bold;

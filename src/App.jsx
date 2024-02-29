@@ -53,7 +53,7 @@ function App() {
             />
           ),
         },
-        { path: "/episodes", element: <Episodes /> },
+        { path: "/episodes", element: <Episodes search={search} filters={filters}/> },
       ],
     },
   ]);

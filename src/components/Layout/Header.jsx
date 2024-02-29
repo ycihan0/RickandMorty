@@ -91,7 +91,7 @@ const Header = ({
                 }
                }}
               className="search-input"
-              placeholder="searh here"
+              placeholder="searh character"
             />
             <button>
               <FontAwesomeIcon icon={faMagnifyingGlass} />

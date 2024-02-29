@@ -3,9 +3,10 @@ import Table from "../components/Table/Table";
 import Card from "../components/UI/Card";
 import CharacterItems from "../components/CharacterItem/CharacterItems";
 
-const Episodes = () => {
+const Episodes = ({ search, filters }) => {
   const [episodes, setEpisodes] = useState([]);
   const [selectedEpisode, setSelectedEpisode] = useState([]);
+  const [selectedEpisodeCopy, setSelectedEpisodeCopy] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
   const [info, setInfo] = useState({});
@@ -40,13 +41,53 @@ const Episodes = () => {
     fetchEpisodesHandler();
   }, [fetchEpisodesHandler]);
 
+
+  useEffect(() => {
+    // Arama işlemini burada gerçekleştir
+    const filteredEpisodes = selectedEpisodeCopy.filter((episode) =>
+      episode.name.toLowerCase().includes(search.toLowerCase())
+    );
+  
+    // Filtrelenmiş bölümleri geçici bir diziye ata
+    let tempSelectedEpisode = filteredEpisodes;
+  
+    // Cinsiyet filtresi varsa, ona göre filtrele
+    if (filters.gender !== "") {
+      tempSelectedEpisode = tempSelectedEpisode.filter(
+        (episode) =>
+          episode.gender.toLowerCase() === filters.gender.toLowerCase()
+      );
+    }
+  
+    // Durum filtresi varsa, ona göre filtrele
+    if (filters.status !== "") {
+      tempSelectedEpisode = tempSelectedEpisode.filter(
+        (episode) =>
+          episode.status.toLowerCase() === filters.status.toLowerCase()
+      );
+    }
+  
+    // Tür filtresi varsa, ona göre filtrele
+    if (filters.species !== "") {
+      tempSelectedEpisode = tempSelectedEpisode.filter(
+        (episode) =>
+          episode.species.toLowerCase() === filters.species.toLowerCase()
+      );
+    }
+  
+    // Filtrelenmiş bölümleri state'e ata
+    setSelectedEpisode(tempSelectedEpisode);
+  }, [search, filters, selectedEpisodeCopy]);
+  
+  
+
   let content = <p></p>;
 
   if (selectedEpisode.length > 0) {
     content = characterList;
   }
 
-  if (error) {
+  if (selectedEpisode.length == 0) {
     content = (
       <div
         style={{
@@ -63,7 +104,7 @@ const Episodes = () => {
           alt="Character not found"
           style={{ width: "120px" }}
         />
-        <h2>Episode not found</h2>
+        <h2>Character not found</h2>
       </div>
     );
   }
@@ -77,10 +118,13 @@ const Episodes = () => {
       <Table
         episodes={episodes}
         setSelectedEpisode={setSelectedEpisode}
+        setSelectedEpisodeCopy={setSelectedEpisodeCopy}
         episodePageNumber={episodePageNumber}
         setEpisodePageNumber={setEpisodePageNumber}
         info={info}
         setError={setError}
+        selectedEpisode={selectedEpisode}
+        search={search}
       />
       <Card>{content}</Card>
     </main>
