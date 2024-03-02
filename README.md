@@ -1,5 +1,6 @@
 # React + Vite
 Click to see the demo👉 https://cihan-project-richandmorty.netlify.app/
+
 ![responsive](https://github.com/ycihan0/rickandmorty/assets/133245392/24937b0a-4fd8-4b84-8603-de24aa52f6ec)
 ![design](https://github.com/ycihan0/rickandmorty/assets/133245392/bdf892d4-fdb5-4ae3-8d5e-509c3d380cf2)
 ![seemore](https://github.com/ycihan0/rickandmorty/assets/133245392/17d28be3-276f-4051-a495-d0f533256a8c)
